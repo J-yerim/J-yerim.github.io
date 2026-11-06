@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Engineer Introduction</title>
+  <style>
+    :root {
+      --butter-yellow: #FFDF8A;
+      --butter-cream: #F5E9DC;
+      --butter-light: #FFF8E7;
+      --dark-chocolate: #4A3B2A;
+      --cream-text: #3D3228;
+      --soft-gray: #A89B8C;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: var(--butter-light);
+      color: var(--cream-text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* 네비게이션 */
+    nav {
+      background-color: var(--butter-yellow);
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--dark-chocolate);
+      letter-spacing: -1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--dark-chocolate);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--butter-cream);
+    }
+
+    /* 히어로 섹션 */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 2rem;
+      position: relative;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--butter-yellow), var(--butter-cream));
+      z-index: -1;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark-chocolate);
+      letter-spacing: -2px;
+    }
+
+    .hero-content p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      color: var(--cream-text);
+    }
+
+    /* 섹션 스타일 */
+    .section {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: var(--dark-chocolate);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--butter-yellow);
+      border-radius: 2px;
+    }
+
+    /* 기술 스택 */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .skill-badge {
+      background: var(--butter-cream);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--dark-chocolate);
+      transition: transform 0.3s ease;
+    }
+
+    .skill-badge:hover {
+      transform: translateY(-3px);
+      background: var(--butter-yellow);
+    }
+
+    /* 프로젝트 */
+    .projects {
+      margin-top: 3rem;
+    }
+
+    .project-card {
+      background: var(--butter-cream);
+      padding: 2rem;
+      margin-top: 1.5rem;
+      border-radius: 8px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .project-card h3 {
+      margin-bottom: 0.5rem;
+      color: var(--dark-chocolate);
+    }
+
+    .project-card p {
+      font-size: 0.875rem;
+      color: var(--soft-gray);
+    }
+
+    /* 연락처 */
+    .contact {
+      max-width: 600px;
+      margin: 4rem auto;
+      text-align: center;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--butter-yellow);
+      color: var(--dark-chocolate);
+      border-radius: 4px;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .contact a:hover {
+      background: var(--dark-chocolate);
+      color: var(--butter-light);
+    }
+
+    /* 푸터 */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--soft-gray);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- 네비게이션 -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">AI Engineer</div>
+      <ul class="nav-links">
+        <li><a href="#about">소개</a></li>
+        <li><a href="#skills">기술</a></li>
+        <li><a href="#projects">프로젝트</a></li>
+        <li><a href="#contact">연락처</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 히어로 섹션 -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>안녕하세요, 저는 AI 엔지니어입니다</h1>
+      <p>인공지능과 기계학습을 활용한 솔루션을 개발하고 연구합니다. 최신 기술 트렌드를 따라가며 실용적인 AI 적용을 통해 비즈니스 가치를 창출하는 데 집중하고 있습니다.</p>
+      <a href="#about" class="cta-btn">내 소개 보기</a>
+    </div>
+  </section>
+
+  <!-- 소개 섹션 -->
+  <section class="section" id="about">
+    <h2 class="section-title">소개</h2>
+    <div style="max-width: 800px; margin: 0 auto;">
+      <p>AI 엔지니어로 다양한 분야의 문제를 해결하는 모델을 개발하고 배포합니다. 컴퓨터 비전, 자연어 처리, 그리고 강화학습까지 광범위한 경험을 가지고 있으며, 특히 확장 가능한 AI 시스템 구축에 강점을 가지고 있습니다.</p>
+      <p>기술적인 도전과제를 즐기며, 데이터 기반의 의사결정 과정을 통해 실질적인 비즈니스 영향을 미치는 솔루션을 만들고자 합니다.</p>
+    </div>
+  </section>
+
+  <!-- 기술 스택 섹션 -->
+  <section class="section" id="skills">
+    <h2 class="section-title">기술 스택</h2>
+    <div class="skills">
+      <span class="skill-badge">Python</span>
+      <span class="skill-badge">PyTorch</span>
+      <span class="skill-badge">TensorFlow</span>
+      <span class="skill-badge">FastAPI</span>
+      <span class="skill-badge">Docker</span>
+      <span class="skill-badge">Kubernetes</span>
+      <span class="skill-badge">AWS</span>
+      <span class="skill-badge">Git</span>
+    </div>
+  </section>
+
+  <!-- 프로젝트 섹션 -->
+  <section class="section" id="projects">
+    <h2 class="section-title">프로젝트</h2>
+    <div class="projects">
+      <!-- 프로젝트 카드 1 -->
+      <div class="project-card">
+        <h3>이미지 분류 모델</h3>
+        <p>전송학습을 활용한 의료 영상 분석 모델. 92% 이상의 정확도를 달성했으며, Docker를 통해 배포되었습니다.</p>
+      </div>
+      <!-- 프로젝트 카드 2 -->
+      <div class="project-card">
+        <h3>텍스트 요약 시스템</h3>
+        <p>대형 언어 모델을 활용한 자동 요약 파이프라인. 비즈니스 문서를 30% 이상 압축 요약 가능한 성과를 거두었습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 연락처 섹션 -->
+  <section class="contact" id="contact">
+    <a href="mailto:example@ai-engineer.com">이메일 문의</a>
+    <div style="margin-top: 1.5rem;">
+      <a href="https://linkedin.com" target="_blank" style="margin-left: 1rem;">LinkedIn</a>
+      <a href="https://github.com" target="_blank" style="margin-left: 1rem;">GitHub</a>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer>
+    <p>2026 AI Engineer Introduction Site</p>
+  </footer>
+
+  <script>
+    // 네비게이션 스크롤 효과
+    const nav = document.querySelector('nav');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > lastScroll && currentScroll > 100) {
+        nav.style.transform = 'translateY(-100%)';
+      } else {
+        nav.style.transform = 'translateY(0)';
+      }
+      
+      lastScroll = currentScroll;
+    });
+  </script>
+</body>
+</html>
